@@ -17,7 +17,7 @@ from YukkiMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, ap
 async def sourc(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/10dfb95793ff3d40e0a90.jpg",
-        caption=f"""✧ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑺𝒐𝒖𝒓𝒄𝒆 𝒍𝒊𝒏𝒅𝒂 ♪\n\n• ᴅᴇᴠᴇʟᴏᴘᴇʀ » [ᴋɪʙʀɪᴀ¹](t.me/FH_KN) \n• ᴅᴇᴠᴇʟᴏᴘᴇʀ » [𝚁𝙰𝚂𝙺𝙾²](t.me/AA969622) \n• ᴄʜᴀɴɴᴇʟ 𝙻𝙸𝙽𝙳𝙰 » [ᴄʜᴀɴɴᴇʟ](t.me/A1122ll)\n\n**""",
+        caption=f"""✧ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑺𝒐𝒖𝒓𝒄𝒆 𝒍𝒊𝒏𝒅𝒂 ♪\n\n• ᴅᴇᴠᴇʟᴏᴘᴇʀ » [ᴋɪʙʀɪᴀ¹](t.me/FH_KN) \n• ᴅᴇᴠᴇʟᴏᴘᴇʀ » [ᴍᴀʀɪᴇʏ²](t.me/Oi_90_7) \n• ᴄʜᴀɴɴᴇʟ 𝙻𝙸𝙽𝙳𝙰 » [ᴄʜᴀɴɴᴇʟ](t.me/A1122ll)\n\n**""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
@@ -36,17 +36,15 @@ async def khalid(client: Client, message: Message):
 « اليك قائـمة الاوامــر »
           
 
-» لتشغيل اغنيه اكتب : تشغيل او شغل
-» لأنهاء الاغنيه اكتب : ايقاف او انهاء 
-» لايقاف الاغنيه مؤقت اكتب : قف 
-» لتكملة الاغنيه من الايقاف المؤقت اكتب : كمل او استمر
-» لتخطي الاغنيه اكتب : تخطي او التالي
-» لكتم البوت في المحادثه اكتب : ڪتم او اسكتي
-» لألغاء كتم البوت في المحادثه اكتب : اتكلم او تكلمي
-» لتحميـل الاغانـي اڪتب : بحث او تحميل
-» لاعادة تشغيل البوت اكتب : /restart""
-
-اوامـر التشغيـل.""",
+»**لتشغيل اغنيه اكتب : تشغيل او شغل**
+»**لأنهاء الاغنيه اكتب : ايقاف او انهاء**
+»**لايقاف الاغنيه مؤقت اكتب : قفي**
+»**لتكملة الاغنيه من الايقاف المؤقت اكتب : كمل او استمر**
+»**لتخطي الاغنيه اكتب : تخطي او التالي**
+»**لكتم البوت في المحادثه اكتب : اسڪتي**
+»**لألغاء كتم البوت في المحادثه اكتب : اتكلم او تكلمي**
+»**لتحميـل الاغانـي اڪتب : بحث او تحميل**
+»**لاعادة تشغيل البوت اكتب** : /restart.""",
       reply_markup=InlineKeyboardMarkup(
             [
             [
@@ -72,19 +70,6 @@ async def khalid(client: Client, message: Message):
             ]
         ),
     )
-@app.on_message(
-    filters.command(["بوت"],""))
-def reply_to_timo(Client, message):
-    message.reply_text(
-        f"""اي يقلبـي 🤍😻""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [
-                InlineKeyboardButton("تحديثات لندا ♪", url=f"https://t.me/FH_KP")
-                ]
-            ]
-        ),
-    ) 
 @app.on_message(
     filters.command(["مين انا"],""))
 def reply_to_timo(Client, message):
@@ -113,24 +98,34 @@ def reply_to_timo(Client, message):
     )    
 @app.on_message(
     filters.command(["مطور","المطور"],""))
-async def khalid(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"https://telegra.ph/file/cda29519fd4604624777b.jpg",
-        caption=f"""ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ sᴏᴜʀᴄᴇ ʟɪɴᴅᴀ
-        
+async def aboutd5ev(client: Client, message: Message):
 
-•ᴅᴇᴠᴇʟᴏᴘᴇʀ » [ᴋɪʙʀɪᴀ¹](https://t.me/FH_KN)
+    usr = await client.get_chat(5566744652)
 
-•ᴅᴇᴠᴇʟᴏᴘᴇʀ » [𝚁𝙰𝚂𝙺𝙾²‌](https://t.me/AA969622)
- 
-•ᴄʜᴀɴɴᴇʟ 𝙻𝙸𝙽𝙳𝙰 » [ᴄʜᴀɴɴᴇʟ](t.me/A1122ll)\n\n**""",
+    name = usr.first_name
+
+    bio = (await client.get_chat(5566744652)).bio
+
+    async for photo in client.iter_profile_photos(5566744652, limit=1):
+
+                    await message.reply_photo(photo.file_id, caption=f"""- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 𝒊𝒅 ⇨  [𝒎𝒂𝒓𝒍𝒆𝒚](t.me/Oi_90_7)\n\n- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓'𝒔 𝑩𝒊𝒐 ⇨ {bio}""", 
+
         reply_markup=InlineKeyboardMarkup(
+
             [
-            [
-                InlineKeyboardButton("تحديثات لندا ♪", url=f"https://t.me/FH_KP")
-                ]
+
+                [
+
+                    InlineKeyboardButton(
+
+                        name, user_id=5566744652)
+
+                ],
+
             ]
+
         ),
+
     )       
 @app.on_message(
     filters.command(["لندا"],""))
@@ -147,26 +142,41 @@ def reply_to_timo(Client, message):
     )
 @app.on_message(
     filters.command(["ميديا", "/tm", "tgm"],""))
-async def telegraph(client, message):
-    replied = message.reply_to_message
-    if not replied:
-        return await message.reply("الرد على ملف وسائط مدعوم ")
-    if not (
-        (replied.photo and replied.photo.file_size <= 5242880)
-        or (replied.animation and replied.animation.file_size <= 5242880)
-        or (replied.video and replied.video.file_name.endswith(".mp4") and replied.video.file_size <= 5242880)
-        or (replied.document and replied.document.file_name.endswith((".jpg", ".jpeg", ".png", ".gif", ".mp4")) and replied.document.file_size <= 5242880)):
-        return await message.reply("غير مدعوم !")
-    download_location = await client.download_media(message=message.reply_to_message,file_name="root/downloads/")
+async def get_link_group(client, message):
+
     try:
-        response = upload_file(download_location)
-    except Exception as document:
-        await message.reply(message, text=document)
-    else:
-        button_s = InlineKeyboardMarkup([[InlineKeyboardButton("فتح الرابط 🔗", url=f"https://telegra.ph{response[0]}")]])
-        await message.reply(f"**الرابط »**\n`https://telegra.ph{response[0]}`",disable_web_page_preview=True,reply_markup=button_s)
-    finally:
-        os.remove(download_location)          
+
+        text = await message.reply("Processing...")
+
+        async def progress(current, total):
+
+            await text.edit_text(f"🕷 يتم رفع الوسائط ... {current * 100 / total:.1f}%")
+
+        try:
+
+            location = f"./media/group/"
+
+            local_path = await message.reply_to_message.download(location, progress=progress)
+
+            await text.edit_text("🕷 يتم جلب الرابط ... 🕸")
+
+            upload_path = upload_file(local_path) 
+
+            await text.edit_text(f"**🕸 | 𝘵𝘦𝘭𝘦 𝘭𝘪𝘯𝘬 **:\n\n<code>https://telegra.ph{upload_path[0]}</code>")     
+
+            os.remove(local_path) 
+
+        except Exception as e:
+
+            await text.edit_text(f"**❌ | File upload failed**\n\n<i>**Reason**: {e}</i>")
+
+            os.remove(local_path) 
+
+            return         
+
+    except Exception:
+
+        pass          
 
 
 @app.on_message(
