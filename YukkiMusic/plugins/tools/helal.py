@@ -154,51 +154,33 @@ def reply_to_timo(Client, message):
         ),
     )
 @app.on_message(
-    filters.command(["ميديا", "/tm", "tgm"],""))
-async def get_link_group(client, message):
+    filters.command(["مطور","المطور"],""))
+async def aboutd5ev(client: Client, message: Message):
 
-    try:
+    usr = await client.get_chat(5820455440)
 
-        text = await message.reply("Processing...")
+    name = usr.first_name
 
-        async def progress(current, total):
+    bio = (await client.get_chat(5820455440)).bio
 
-            await text.edit_text(f"🕷 يتم رفع الوسائط ... {current * 100 / total:.1f}%")
+    async for photo in client.iter_profile_photos(5820455440, limit=1):
 
-        try:
+                    await message.reply_photo(photo.file_id, caption=f"""- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 𝒊𝒅 ⇨  [ᴋɪʙʀɪᴀ](t.me/FH_KN)\n\n- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓'𝒔 𝑩𝒊𝒐 ⇨ {bio}""", 
 
-            location = f"./media/group/"
+        reply_markup=InlineKeyboardMarkup(
 
-            local_path = await message.reply_to_message.download(location, progress=progress)
+            [
 
-            await text.edit_text("🕷 يتم جلب الرابط ... 🕸")
+                [
 
-            upload_path = upload_file(local_path) 
+                    InlineKeyboardButton(
 
-            await text.edit_text(f"**🕸 | 𝘵𝘦𝘭𝘦 𝘭𝘪𝘯𝘬 **:\n\n<code>https://telegra.ph{upload_path[0]}</code>")     
+                        name, user_id=5820455440)
 
-            os.remove(local_path) 
+                ],
 
-        except Exception as e:
+            ]
 
-            await text.edit_text(f"**❌ | File upload failed**\n\n<i>**Reason**: {e}</i>")
+        ),
 
-            os.remove(local_path) 
-
-            return         
-
-    except Exception:
-
-        pass          
-
-
-@app.on_message(
-    filters.command(["الرابط"],""))
-async def invitelink(client, message):
-    chid = message.chat.id
-    try:
-        invitelink = await client.export_chat_invite_link(chid)
-    except:
-        return await message.reply_text("قم برفعي مسؤول في المجموعة أولا ؟")
-    await message.reply_text(f"**تم إنشاء رابط الدعوة بنجاح :**\n {invitelink}")
-    
+    )
