@@ -69,59 +69,20 @@ async def khalid(client: Client, message: Message):
                 ]
             ]
         ),
-    )
-@app.on_message(
-    filters.command(["بوت"],""))
-def reply_to_timo(Client, message):
-    message.reply_text(
-        f"""اي يقلبـي 🤍😻""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [
-                InlineKeyboardButton("تحديثات لندا ♪", url=f"https://t.me/FH_KP")
-                ]
-            ]
-        ),
     ) 
-@app.on_message(
-    filters.command(["مين انا"],""))
-def reply_to_timo(Client, message):
-    message.reply_text(
-        f"""انت قلبي ❤😻""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [
-                InlineKeyboardButton("تحديثات لندا ♪", url=f"https://t.me/FH_KP")
-                ]
-            ]
-        ),
-    )       
-@app.on_message(
-    filters.command(["انا مين"],""))
-def reply_to_timo(Client, message):
-    message.reply_text(
-        f"""ـ• ﺂٰنـُـٰٰت ﺂٰلـُُـٰ؏ـٖمـࢪَٰٰي َ،🤭♥️ ֆ ۦٰ،""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-            [
-                InlineKeyboardButton("تحديثات لندا ♪", url=f"https://t.me/FH_KP")
-                ]
-            ]
-        ),
-    )    
 @app.on_message(
     filters.command(["مطور","المطور"],""))
 async def aboutd5ev(client: Client, message: Message):
 
-    usr = await client.get_chat(5820455440)
+    usr = await client.get_chat(5468131406)
 
     name = usr.first_name
 
-    bio = (await client.get_chat(5820455440)).bio
+    bio = (await client.get_chat(5468131406)).bio
 
-    async for photo in client.iter_profile_photos(5820455440, limit=1):
+    async for photo in client.iter_profile_photos(5468131406, limit=1):
 
-                    await message.reply_photo(photo.file_id, caption=f"""- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 𝒊𝒅 ⇨  [ᴋɪʙʀɪᴀ](t.me/FH_KN)\n\n- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓'𝒔 𝑩𝒊𝒐 ⇨ {bio}""", 
+                    await message.reply_photo(photo.file_id, caption=f"""- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 𝒊𝒅 ⇨  [『.𝗟𝗜𝗘𝗡˹.](t.me/llL_67o)\n\n- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓'𝒔 𝑩𝒊𝒐 ⇨ {bio}""", 
 
         reply_markup=InlineKeyboardMarkup(
 
@@ -131,7 +92,7 @@ async def aboutd5ev(client: Client, message: Message):
 
                     InlineKeyboardButton(
 
-                        name, user_id=5820455440)
+                        name, user_id=5468131406)
 
                 ],
 
@@ -154,33 +115,12 @@ def reply_to_timo(Client, message):
         ),
     )
 @app.on_message(
-    filters.command(["مطور","المطور"],""))
-async def aboutd5ev(client: Client, message: Message):
-
-    usr = await client.get_chat(5820455440)
-
-    name = usr.first_name
-
-    bio = (await client.get_chat(5820455440)).bio
-
-    async for photo in client.iter_profile_photos(5820455440, limit=1):
-
-                    await message.reply_photo(photo.file_id, caption=f"""- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 𝒊𝒅 ⇨  [ᴋɪʙʀɪᴀ](t.me/FH_KN)\n\n- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓'𝒔 𝑩𝒊𝒐 ⇨ {bio}""", 
-
-        reply_markup=InlineKeyboardMarkup(
-
-            [
-
-                [
-
-                    InlineKeyboardButton(
-
-                        name, user_id=5820455440)
-
-                ],
-
-            ]
-
-        ),
-
-    )
+    filters.command(["الرابط"],""))
+async def invitelink(client, message):
+    chid = message.chat.id
+    try:
+        invitelink = await client.export_chat_invite_link(chid)
+    except:
+        return await message.reply_text("قم برفعي مسؤول في المجموعة أولا ؟")
+    await message.reply_text(f"**تم إنشاء رابط الدعوة بنجاح :**\n {invitelink}")
+    
