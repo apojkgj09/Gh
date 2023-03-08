@@ -21,7 +21,7 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
 # مده الاغنيه بتبقي ٦٠ دقيقه انا مسويها ٣٠٠ تقدر تزودها
 DURATION_LIMIT_MIN = int(
-    getenv("DURATION_LIMIT", "500")
+    getenv("DURATION_LIMIT", "1000")
 )  # Remember to give value in Minutes
 
 # Duration Limit for downloading Songs in MP3 or MP4 format from bot
