@@ -14,21 +14,50 @@ from YukkiMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, ap
 #الاوامر
 @app.on_message(
     filters.command(["ايدي","ا","id"],""))
-async def vambir(client: Client, message: Message):
-    usr = await client.get_users(message.from_user.id)
-    name = usr.first_name
-    async for photo in client.iter_profile_photos(message.from_user.id, limit=1):
-                    await message.reply_text(       f"""◂ 𝙸𝙳 : »  `{message.from_user.id}`\n\n◂ 𝙸𝙳 𝙶𝚁𝙾𝚄𝙿 : » `{message.chat.id}`""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                       "𝙼𝙸𝚂𝚂𝙸𝙽𝙶 𝚆𝙾𝚁𝙳𝚂", url=f"https://t.me/FH_KP"),
-                ],
-                [  
-                    InlineKeyboardButton(
-                        name, url=f"https://t.me/{message.from_user.username}")
-                ],
-            ]
-        ),
+async def getid(client, message):
+    chat = message.chat
+    your_id = message.from_user.id
+    message_id = message.message_id
+    reply = message.reply_to_message
+
+    text = f"**[ᴍᴇssᴀɢᴇ ɪᴅ:]({message.link})** `{message_id}`\n"
+    text += f"**[ʏᴏᴜʀ ɪᴅ:](tg://user?id={your_id})** `{your_id}`\n"
+
+    if not message.command:
+        message.command = message.text.split()
+
+    if not message.command:
+        message.command = message.text.split()
+
+    if len(message.command) == 2:
+        try:
+            split = message.text.split(None, 1)[1].strip()
+            user_id = (await client.get_users(split)).id
+            text += f"**[ᴜsᴇʀ ɪᴅ:](tg://user?id={user_id})** `{user_id}`\n"
+
+        except Exception:
+            return await message.reply_text("ᴛʜɪs ᴜsᴇʀ ᴅᴏᴇsɴ'ᴛ ᴇxɪsᴛ.", quote=True)
+
+    text += f"**[ᴄʜᴀᴛ ɪᴅ:](https://t.me/{chat.username})** `{chat.id}`\n\n"
+
+    if (
+        not getattr(reply, "empty", True)
+        and not message.forward_from_chat
+        and not reply.sender_chat
+    ):
+        text += f"**[ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ɪᴅ:]({reply.link})** `{reply.message_id}`\n"
+        text += f"**[ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ ɪᴅ:](tg://user?id={reply.from_user.id})** `{reply.from_user.id}`\n\n"
+
+    if reply and reply.forward_from_chat:
+        text += f"ᴛʜᴇ ғᴏʀᴡᴀʀᴅᴇᴅ ᴄʜᴀɴɴᴇʟ, {reply.forward_from_chat.title}, ʜᴀs ᴀɴ ɪᴅ ᴏғ `{reply.forward_from_chat.id}`\n\n"
+        print(reply.forward_from_chat)
+
+    if reply and reply.sender_chat:
+        text += f"ɪᴅ ᴏғ ᴛʜᴇ ʀᴇᴘʟɪᴇᴅ ᴄʜᴀᴛ/ᴄʜᴀɴɴᴇʟ, ɪs `{reply.sender_chat.id}`"
+        print(reply.sender_chat)
+
+    await message.reply_text(
+        text,
+        disable_web_page_preview=True,
+        parse_mode="md",
     )
