@@ -16,11 +16,11 @@ disable_cut = []
 
 @app.on_message(filters.regex("^المطور$") & filters.group)
 async def zohary(client: Client, message: Message):
-    usr = await client.get_users(5566744652)
+    usr = await client.get_users(5925497963)
     name = usr.first_name
-    user = await client.get_chat(5566744652)
+    user = await client.get_chat(5925497963)
     Bio = user.bio
-    async for photo in client.iter_profile_photos(5566744652, limit=1):
+    async for photo in client.iter_profile_photos(5925497963, limit=1):
                     await message.reply_photo(photo.file_id,       caption=f"""- معلومات المطور الاساسي
                     
 ɴᴀᴍᴇ » [{usr.first_name}](https://t.me/llL_67o) ⚡
