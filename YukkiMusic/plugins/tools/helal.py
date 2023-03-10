@@ -120,8 +120,7 @@ async def khalid(client: Client, message: Message):
                 [
                 InlineKeyboardButton("『.𝗟𝗜𝗘𝗡˹.🇮🇹", url=f"https://t.me/llL_67o"),
                 ],[
-                InlineKeyboardButton(
-                        name, user_id=5468131406)
+                InlineKeyboardButton("تحديثات لنـدا", url=f"https://t.me/FH_KP"),
                 ]
             ]
         ),
