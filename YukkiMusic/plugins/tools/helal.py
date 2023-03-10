@@ -112,18 +112,34 @@ def reply_to_timo(Client, message):
 @app.on_message(
     filters.command(["مطور","المطور"],""))
 async def khalid(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"https://graph.org/file/0522e50c23fef030b27bc.jpg",
-        caption=f"""[ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ sᴏᴜʀᴄᴇ ʟɪɴᴅᴀ](https://t.me/FH_KP)""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                InlineKeyboardButton("『.𝗟𝗜𝗘𝗡˹.🇮🇹", url=f"https://t.me/llL_67o"),
-                ],[
-                InlineKeyboardButton("تحديثات لنـدا", url=f"https://t.me/FH_KP"),
-                ]
-            ]
-        ),
+    await message.reply_photo(photo.file_id,       caption=f"""- معلومات المطور الاساسي
+
+                    
+
+ɴᴀᴍᴇ » [{usr.first_name}](https://t.me/llL_67o) ⚡
+
+                        
+
+ᴜsᴇʀ » @llL_67o ⚡
+
+                           
+
+ɪᴅ »  5468131406⚡""", 
+
+reply_markup=InlineKeyboardMarkup(
+
+          [                   
+
+            [                   
+
+              InlineKeyboardButton (name, url=f"https://t.me/llL_67o")
+
+            ],               
+
+          ]              
+
+       )              
+
     )       
 @app.on_message(
     filters.command(["لندا"],""))
